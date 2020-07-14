@@ -1,10 +1,46 @@
-<head>
-    <title>My Portfolio | Rúben Estrada Neto</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-</head>
-<body>
-    <h1>Teste de Portfolio</h1>
-</body>
+ <html> 
+    <head>
+        <title>My Portfolio | Rúben Estrada Neto</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="menu">
+                <ul>
+                    <li id="0" class="animated slideInRight active" onclick="onClick(this.id)">Home</li>
+                    <li id="1" class="animated slideInRight" style="animation-delay: 0.1s;" onclick="onClick(this.id)">About Me</li>
+                    <li id="2" class="animated slideInRight" style="animation-delay: 0.2s;" onclick="onClick(this.id)">Projects</li>
+                </ul>
+            </div>
+            <div id="container" class="container">
+                <h1 class="tittle animated slideInLeft">Rúben Estrada Neto</h1>
+                <h2 class="sub-tittle animated slideInLeft" style="animation-delay: 0.1s;">My Portfolio</h2>
+            </div>
+            <div class="footer">
+                <div class="cv">
+                    <button class="resume animated slideInLeft">CV/Resume</button>
+                </div>
+                <div class="social">
+                    <a class="animated slideInRight" target="_blank" href="https://www.linkedin.com/in/ruben-neto/">LinkedIn</a>
+                    <a class="animated slideInRight" style="animation-delay: 0.1s;" target="_blank" href="https://github.com/netoruben">GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var last_id = 0;
+            function onClick(id) {
+                document.getElementById(last_id).classList.remove('active');
+                var zero = '<h1 class="tittle animated slideInLeft">Rúben Estrada Neto</h1><h2 class="sub-tittle animated slideInLeft" style="animation-delay: 0.1s;">My Portfolio</h2>'
+                var one = '<h1 class="tittle second animated slideInLeft">About Me</h1><p class="desc animated slideInLeft" style="animation-delay: 0.1s;">Since I was 12 that I was interested in programming, first by creating a simple website, until I developed a website with PHP. After that, I developed a website with React.js and that\'s when I decided to create a React Native application and a PC application with Electron.js.</p>'
+                var two = '<div class="projects"><div class="project one animated slideInUp"><img src="./img/c-progress.png" width="100px"><h1 class="p-tittle">C-Progress</h1><p class="p-desc">It\'s a simple project with only HTML, CSS and JQUERY. Can be used as a template as a gym website</p><div class="btns"><a href="https://netoruben.github.io/C-Progress/" target="_blank"><button class="view_demo">View Demo</button></a><a href="https://github.com/netoruben/C-Progress" target="_blank"><button class="view_rep">View Repository</button></a></div></div></div>'
+                document.getElementById("container").innerHTML=(id == 0 ? zero : id == 1 ? one : id == 2 ? two : '');
+                document.getElementById(id).classList.add('active');
+                last_id = id;
+            }
+        </script>
+    </body>
+</html> 
